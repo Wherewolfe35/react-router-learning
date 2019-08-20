@@ -6,21 +6,21 @@ import Plants from '../Plants/Plants.js';
 import Home from '../Home/Home.js';
 import About from '../About/About.js';
 import NavBar from '../NavBar/NavBar.js';
+import { connect } from "react-redux";
 
 class App extends Component {
-  handleClick = (path) => {
-    alert(`You are headed to ${path}!`);
-    //change location
-    this.props.history.push(path);
+  handleClick = () => {
+    this.props.dispatch(
+      {type: 'BUTTON_ONE'}
+    )
   }
 
   render() {
-    console.log(this.state);
-    
     return (
       <Router>
       <div className="App">
         <NavBar />
+        <button onClick={this.handleClick}>Button 1</button>
         <Route exact path='/' component={Home} />{/* <Home /> 'exact' allows the browser to load home only when at /,not /plants*/}
           <Route path='/plants' component={Plants} /> {/* Uh oh, can't pass props without redux! */}
           <Route path='/animals' component={Animals} />
@@ -31,4 +31,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);
