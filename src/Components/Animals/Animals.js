@@ -5,6 +5,7 @@ class Animals extends Component {
     return (
       <div>
         <h1>ANIMALS</h1>
+        <img src='https://www.doi.gov/sites/doi.gov/files/uploads/yellowstone_bison_diana_levasseur_ste_small.jpg' alt='bison' />
       </div>
     )
   }
